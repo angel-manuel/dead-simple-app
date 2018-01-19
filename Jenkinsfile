@@ -1,5 +1,4 @@
 pipeline {
-    agent { docker 'php:7' }
     stages {
         stage('info') {
             steps {
@@ -7,7 +6,9 @@ pipeline {
             }
         }
         stage('lint') {
+            agent { docker 'php:7' }
             steps {
+                sh 'echo "Hello from container"'
                 sh 'php -l index.php'
             }
         }
