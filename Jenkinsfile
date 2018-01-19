@@ -1,6 +1,8 @@
 pipeline {
     stages {
+        agent none
         stage('info') {
+            agent any
             steps {
                 sh 'echo "Dead Simple App CI"'
             }
